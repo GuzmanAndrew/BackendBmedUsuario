@@ -24,11 +24,11 @@ public class Usuario {
 
     private int edad;
 
-    private int cedula;
+    private String cedula;
 
     private String direccion;
 
-    private int celular;
+    private String celular;
     @NotNull
     private String password;
     @NotNull
@@ -40,7 +40,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nombres, String apellidos, String nombreUsuario, String email, int edad, int cedula, String direccion, int celular, String password) {
+    public Usuario(String nombres, String apellidos, String nombreUsuario, String email, int edad, String cedula, String direccion, String celular, String password) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.nombreUsuario = nombreUsuario;
@@ -88,6 +88,22 @@ public class Usuario {
         return email;
     }
 
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -100,28 +116,12 @@ public class Usuario {
         this.edad = edad;
     }
 
-    public int getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(int cedula) {
-        this.cedula = cedula;
-    }
-
     public String getDireccion() {
         return direccion;
     }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-
-    public int getCelular() {
-        return celular;
-    }
-
-    public void setCelular(int celular) {
-        this.celular = celular;
     }
 
     public String getPassword() {

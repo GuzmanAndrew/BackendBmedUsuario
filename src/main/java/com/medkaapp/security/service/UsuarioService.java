@@ -39,7 +39,7 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
     }
 
-    public Usuario findById(Integer id) {
-        return usuarioRepository.findById(id).get();
+    public Usuario updateUser(Usuario user) {
+        return usuarioRepository.save(user);
     }
 }

@@ -15,13 +15,13 @@ public class UsuarioPrincipal implements UserDetails {
     private String nombreUsuario;
     private String email;
     private int edad;
-    private int cedula;
+    private String cedula;
     private String direccion;
-    private int celular;
+    private String celular;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UsuarioPrincipal(String nombres, String apellidos, String nombreUsuario, String email, int edad, int cedula, String direccion, int celular, String password, Collection<? extends GrantedAuthority> authorities) {
+    public UsuarioPrincipal(String nombres, String apellidos, String nombreUsuario, String email, int edad, String cedula, String direccion, String celular, String password, Collection<? extends GrantedAuthority> authorities) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.nombreUsuario = nombreUsuario;

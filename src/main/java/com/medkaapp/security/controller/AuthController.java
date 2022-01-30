@@ -77,6 +77,22 @@ public class AuthController {
         return usuarioId;
     }
 
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody Usuario user){
+
+        Usuario usuarioSelect = new Usuario();
+
+        usuarioSelect = usuarioService.getByUserId(id);
+        usuarioSelect.setCelular(user.getCelular());
+        usuarioSelect.setDireccion(user.getDireccion());
+        usuarioSelect.setEdad(user.getEdad());
+        usuarioSelect.setEmail(user.getEmail());
+
+        usuarioService.updateUser(usuarioSelect);
+
+        return new ResponseEntity(new Mensaje("usuario actualizado"), HttpStatus.OK);
+    }
+
     @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
         if(bindingResult.hasErrors())
