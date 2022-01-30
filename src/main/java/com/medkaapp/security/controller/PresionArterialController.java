@@ -1,17 +1,16 @@
-package com.medkaapp.controller;
+package com.medkaapp.security.controller;
 
-import com.medkaapp.db.PresionArterial;
-import com.medkaapp.dto.CreatePresionArterialDTO;
+import com.medkaapp.security.entity.PresionArterial;
+import com.medkaapp.security.dto.CreatePresionArterialDTO;
 import com.medkaapp.security.entity.Usuario;
 import com.medkaapp.security.repository.IUsuarioDao;
-import com.medkaapp.service.impl.PresionArterialServiceImpl;
+import com.medkaapp.security.service.impl.PresionArterialServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")

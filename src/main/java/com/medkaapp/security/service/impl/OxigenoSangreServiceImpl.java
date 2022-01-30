@@ -1,9 +1,9 @@
-package com.medkaapp.service.impl;
+package com.medkaapp.security.service.impl;
 
-import com.medkaapp.dao.IOxigenoSangreDao;
-import com.medkaapp.db.OgixenoSangre;
+import com.medkaapp.security.repository.IOxigenoSangreDao;
+import com.medkaapp.security.entity.OgixenoSangre;
 import com.medkaapp.security.entity.Usuario;
-import com.medkaapp.service.IOxigenoSangreService;
+import com.medkaapp.security.service.IOxigenoSangreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

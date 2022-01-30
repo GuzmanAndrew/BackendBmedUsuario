@@ -1,6 +1,6 @@
-package com.medkaapp.service;
+package com.medkaapp.security.service;
 
-import com.medkaapp.db.PresionArterial;
+import com.medkaapp.security.entity.PresionArterial;
 import com.medkaapp.security.entity.Usuario;
 
 import java.util.List;

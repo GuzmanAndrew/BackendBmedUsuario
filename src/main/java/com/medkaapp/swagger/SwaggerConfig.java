@@ -24,13 +24,13 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "Dev Medka",
+                "Dev Bmed",
                 "Description",
-                "2.0",
+                "1.1.0",
                 "Terminos y Condiciones",
                 new Contact("Andrew Ramirez", "https://guzmanandrew.github.io/Portafolio/", "ramirezandrew172@gmail.com"),
                 "Licencia",
-                "API Medka Solution",
+                "API Bmed Solution",
                 Collections.emptyList()
         );
     }

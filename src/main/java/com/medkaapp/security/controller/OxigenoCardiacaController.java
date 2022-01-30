@@ -1,11 +1,10 @@
-package com.medkaapp.controller;
+package com.medkaapp.security.controller;
 
-import com.medkaapp.db.OgixenoSangre;
-import com.medkaapp.db.PresionArterial;
-import com.medkaapp.dto.CreateOxigenoSangreDTO;
+import com.medkaapp.security.entity.OgixenoSangre;
+import com.medkaapp.security.dto.CreateOxigenoSangreDTO;
 import com.medkaapp.security.entity.Usuario;
 import com.medkaapp.security.repository.IUsuarioDao;
-import com.medkaapp.service.impl.OxigenoSangreServiceImpl;
+import com.medkaapp.security.service.impl.OxigenoSangreServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

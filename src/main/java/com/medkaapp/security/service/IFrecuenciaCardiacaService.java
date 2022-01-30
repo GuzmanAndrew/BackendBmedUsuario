@@ -1,6 +1,6 @@
-package com.medkaapp.service;
+package com.medkaapp.security.service;
 
-import com.medkaapp.db.FrecuenciaCardiaca;
+import com.medkaapp.security.entity.FrecuenciaCardiaca;
 import com.medkaapp.security.entity.Usuario;
 
 import java.util.List;

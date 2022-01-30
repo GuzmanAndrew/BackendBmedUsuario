@@ -4,12 +4,15 @@ import com.medkaapp.dto.Mensaje;
 import com.medkaapp.security.dto.JwtDto;
 import com.medkaapp.security.dto.LoginUsuario;
 import com.medkaapp.security.dto.NuevoUsuario;
+import com.medkaapp.security.entity.FrecuenciaCardiaca;
 import com.medkaapp.security.entity.Rol;
 import com.medkaapp.security.entity.Usuario;
 import com.medkaapp.security.enums.RolNombre;
 import com.medkaapp.security.jwt.JwtProvider;
+import com.medkaapp.security.repository.IUsuarioDao;
 import com.medkaapp.security.service.RolService;
 import com.medkaapp.security.service.UsuarioService;
+import com.medkaapp.security.service.impl.FrecuenciaCardiacaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,16 +48,6 @@ public class AuthController {
 
     @Autowired
     JwtProvider jwtProvider;
-
-    /**
-     * Endponit para buscar usuario por nombre
-     * @param usuario body
-     * @return
-     */
-    @GetMapping("/findUsuario/{usuario}")
-    public Usuario PacienteId(@PathVariable(name = "usuario") String usuario) {
-        return usuarioService.getByNombreUsuario(usuario).get();
-    }
 
     /**
      * Endponit para listar usuarios
@@ -129,4 +122,5 @@ public class AuthController {
         JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername(), userDetails.getAuthorities());
         return new ResponseEntity(jwtDto, HttpStatus.OK);
     }
+    
 }

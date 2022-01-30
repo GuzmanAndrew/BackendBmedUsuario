@@ -1,9 +1,9 @@
-package com.medkaapp.service.impl;
+package com.medkaapp.security.service.impl;
 
-import com.medkaapp.dao.ITemperaturaDao;
-import com.medkaapp.db.Temperatura;
+import com.medkaapp.security.repository.ITemperaturaDao;
+import com.medkaapp.security.entity.Temperatura;
 import com.medkaapp.security.entity.Usuario;
-import com.medkaapp.service.ITemperaturaService;
+import com.medkaapp.security.service.ITemperaturaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

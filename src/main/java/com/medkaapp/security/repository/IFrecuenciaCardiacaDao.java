@@ -1,7 +1,6 @@
-package com.medkaapp.dao;
+package com.medkaapp.security.repository;
 
-import com.medkaapp.db.FrecuenciaCardiaca;
-import com.medkaapp.db.PresionArterial;
+import com.medkaapp.security.entity.FrecuenciaCardiaca;
 import com.medkaapp.security.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

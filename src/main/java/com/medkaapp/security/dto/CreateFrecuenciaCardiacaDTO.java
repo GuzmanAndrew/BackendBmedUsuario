@@ -1,7 +1,8 @@
-package com.medkaapp.dto;
+package com.medkaapp.security.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -10,13 +11,13 @@ import java.util.Locale;
 
 @Getter
 @Setter
-public class CreateTemperaturaDTO {
+public class CreateFrecuenciaCardiacaDTO {
 
     private String fecha = LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 
     private String hora = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm", Locale.US));
 
-    private int temperatura;
+    private String frecuencia;
 
     private int pacienteId;
 }

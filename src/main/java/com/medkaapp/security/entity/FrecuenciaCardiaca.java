@@ -1,4 +1,4 @@
-package com.medkaapp.db;
+package com.medkaapp.security.entity;
 
 import com.medkaapp.security.entity.Usuario;
 
@@ -8,8 +8,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
-@Table(name="oxigeno_sangre")
-public class OgixenoSangre {
+@Table(name="frecuencia_cardiaca")
+public class FrecuenciaCardiaca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,20 +20,20 @@ public class OgixenoSangre {
     @Column(name = "hora")
     private String hora = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm"));
 
-    @Column(name = "oxigeno")
-    private int oxigeno;
+    @Column(name = "frecuencia")
+    private String frecuencia;
 
     @ManyToOne
     @JoinColumn(name = "id_paciente")
     private Usuario paciente;
 
-    public OgixenoSangre() {
+    public FrecuenciaCardiaca() {
     }
 
-    public OgixenoSangre(String fecha, String hora, int oxigeno, Usuario paciente) {
+    public FrecuenciaCardiaca(String fecha, String hora, String frecuencia, Usuario paciente) {
         this.fecha = fecha;
         this.hora = hora;
-        this.oxigeno = oxigeno;
+        this.frecuencia = frecuencia;
         this.paciente = paciente;
     }
 
@@ -61,12 +61,12 @@ public class OgixenoSangre {
         this.hora = hora;
     }
 
-    public int getOxigeno() {
-        return oxigeno;
+    public String getFrecuencia() {
+        return frecuencia;
     }
 
-    public void setOxigeno(int oxigeno) {
-        this.oxigeno = oxigeno;
+    public void setFrecuencia(String frecuencia) {
+        this.frecuencia = frecuencia;
     }
 
     public Usuario getPaciente() {

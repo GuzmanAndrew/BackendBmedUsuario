@@ -1,4 +1,4 @@
-package com.medkaapp.dto;
+package com.medkaapp.security.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,16 +8,15 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-@Getter @Setter
-public class CreatePresionArterialDTO {
+@Getter
+@Setter
+public class CreateOxigenoSangreDTO {
 
     private String fecha = LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 
     private String hora = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm", Locale.US));
 
-    private String sistolica;
-
-    private String diastolica;
+    private int oxigeno;
 
     private int pacienteId;
 }

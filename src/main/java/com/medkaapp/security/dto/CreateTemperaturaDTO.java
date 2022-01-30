@@ -1,4 +1,4 @@
-package com.medkaapp.dto;
+package com.medkaapp.security.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,13 +10,13 @@ import java.util.Locale;
 
 @Getter
 @Setter
-public class CreateOxigenoSangreDTO {
+public class CreateTemperaturaDTO {
 
     private String fecha = LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 
     private String hora = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm", Locale.US));
 
-    private int oxigeno;
+    private int temperatura;
 
     private int pacienteId;
 }

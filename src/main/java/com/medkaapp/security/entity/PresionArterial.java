@@ -1,4 +1,4 @@
-package com.medkaapp.db;
+package com.medkaapp.security.entity;
 
 import com.medkaapp.security.entity.Usuario;
 

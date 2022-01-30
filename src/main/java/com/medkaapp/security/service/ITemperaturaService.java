@@ -1,6 +1,6 @@
-package com.medkaapp.service;
+package com.medkaapp.security.service;
 
-import com.medkaapp.db.Temperatura;
+import com.medkaapp.security.entity.Temperatura;
 import com.medkaapp.security.entity.Usuario;
 
 import java.util.List;

@@ -1,9 +1,9 @@
-package com.medkaapp.service.impl;
+package com.medkaapp.security.service.impl;
 
-import com.medkaapp.dao.IFrecuenciaCardiacaDao;
-import com.medkaapp.db.FrecuenciaCardiaca;
+import com.medkaapp.security.repository.IFrecuenciaCardiacaDao;
+import com.medkaapp.security.entity.FrecuenciaCardiaca;
 import com.medkaapp.security.entity.Usuario;
-import com.medkaapp.service.IFrecuenciaCardiacaService;
+import com.medkaapp.security.service.IFrecuenciaCardiacaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

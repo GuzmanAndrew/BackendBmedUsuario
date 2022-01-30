@@ -1,9 +1,9 @@
-package com.medkaapp.service.impl;
+package com.medkaapp.security.service.impl;
 
-import com.medkaapp.dao.IPresionArterialDao;
-import com.medkaapp.db.PresionArterial;
+import com.medkaapp.security.repository.IPresionArterialDao;
+import com.medkaapp.security.entity.PresionArterial;
 import com.medkaapp.security.entity.Usuario;
-import com.medkaapp.service.IPresionArterialService;
+import com.medkaapp.security.service.IPresionArterialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
