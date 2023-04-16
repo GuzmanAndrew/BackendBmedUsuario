@@ -18,11 +18,12 @@ public class UsuarioService {
     public Optional<Usuario> getByNombreUsuario(String nombreUsuario){
         return usuarioRepository.findByNombreUsuario(nombreUsuario);
     }
-
     public List<Usuario> getListUsuarios(){
         return usuarioRepository.findAll();
     }
-
+    public Usuario getByUsername(String username) {
+        return usuarioRepository.findByUserName(username);
+    }
     public Usuario getByUserId(Integer id){
         return  usuarioRepository.findById(id).get();
     }
