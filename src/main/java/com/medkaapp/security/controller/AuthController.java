@@ -58,19 +58,19 @@ public class AuthController {
      * Endponit para listar usuario por id
      * @return
      */
-    /*@GetMapping("/usuario/{id}")
+    @GetMapping("/usuario/{id}")
     public Usuario usuarioId(@PathVariable(name = "id") Integer id) {
         Usuario usuarioId = new Usuario();
         usuarioId = usuarioService.getByUserId(id);
         System.out.println("Paciente seleccionado fue: " + usuarioId);
         return usuarioId;
-    }*/
+    }
 
     /**
      * Endponit para listar usuario por nombreUsuario
      * @return
      */
-    @GetMapping("/usuario/{nombreUsuario}")
+    @GetMapping("/user/name/{nombreUsuario}")
     public Usuario usuarioUsername(@PathVariable(name = "nombreUsuario") String nombreUsuario) {
         Usuario usuarioId = new Usuario();
         usuarioId = usuarioService.getByUsername(nombreUsuario);
