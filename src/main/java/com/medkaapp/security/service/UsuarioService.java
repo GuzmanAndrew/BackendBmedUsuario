@@ -27,19 +27,15 @@ public class UsuarioService {
     public Usuario getByUserId(Integer id){
         return  usuarioRepository.findById(id).get();
     }
-
     public boolean existsByNombreUsuario(String nombreUsuario){
         return usuarioRepository.existsByNombreUsuario(nombreUsuario);
     }
-
     public boolean existsByEmail(String email){
         return usuarioRepository.existsByEmail(email);
     }
-
     public void save(Usuario usuario){
         usuarioRepository.save(usuario);
     }
-
     public Usuario updateUser(Usuario user) {
         return usuarioRepository.save(user);
     }

@@ -1,5 +1,6 @@
 package com.medkaapp.security.service.impl;
 
+import com.medkaapp.security.dto.CreateFrecuenciaCardiacaDTO;
 import com.medkaapp.security.repository.IFrecuenciaCardiacaDao;
 import com.medkaapp.security.entity.FrecuenciaCardiaca;
 import com.medkaapp.security.entity.Usuario;
@@ -7,6 +8,7 @@ import com.medkaapp.security.service.IFrecuenciaCardiacaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Tuple;
 import java.util.List;
 
 @Service
@@ -41,7 +43,7 @@ public class FrecuenciaCardiacaServiceImpl implements IFrecuenciaCardiacaService
     }
 
     @Override
-    public List<FrecuenciaCardiaca> findByUser(Usuario id) {
-        return iFrecuenciaCardiacaDao.findByUser(id);
+    public List<Tuple> findDataFrecuencia(Usuario id) {
+        return iFrecuenciaCardiacaDao.findByUserNative(id);
     }
 }
