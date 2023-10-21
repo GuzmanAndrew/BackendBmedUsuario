@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.Tuple;
 
 @Component
-public class DataMapper implements Converter<Tuple, CreateFrecuenciaCardiacaDTO> {
+public class ClasificacionMapper implements Converter<Tuple, CreateFrecuenciaCardiacaDTO> {
     @Override
     public CreateFrecuenciaCardiacaDTO convert(Tuple tuple) {
         CreateFrecuenciaCardiacaDTO dto = new CreateFrecuenciaCardiacaDTO();

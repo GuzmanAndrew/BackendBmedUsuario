@@ -13,9 +13,5 @@ public interface ICovidService {
 
     public Covid covidId(Long id);
 
-    public Covid actualizarCovid(Covid covid);
-
-    public void eliminarCovid(Long id);
-
     public List<Covid> findByUser(Usuario id);
 }

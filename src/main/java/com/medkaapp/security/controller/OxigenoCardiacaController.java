@@ -23,22 +23,10 @@ public class OxigenoCardiacaController {
     @Autowired
     IUsuarioDao pacienteDao;
 
-    @GetMapping("/oxi/list")
-    public List<OgixenoSangre> listarOxigenoSangre(){
-        return oxigenoSangreService.listarOxigenoSangre();
-    }
-
     @GetMapping("/oxi/user/{id}")
     public List<OgixenoSangre> presionIdUser(@PathVariable(name = "id") Integer id) {
         Usuario usuario = pacienteDao.findById(id).get();
         return oxigenoSangreService.findByUser(usuario);
-    }
-
-    @GetMapping("/oxi/{id}")
-    public OgixenoSangre oxigenoSangreFindId(@PathVariable(name = "id") Long id) {
-        OgixenoSangre oxigenoId = new OgixenoSangre();
-        oxigenoId = oxigenoSangreService.oxigenoSangreId(id);
-        return oxigenoId;
     }
 
     @PostMapping("/oxi/save")
@@ -53,21 +41,4 @@ public class OxigenoCardiacaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(oxigenoSangreService.guardarOxigenoSangre(newOxigeno));
     }
 
-    @PutMapping("/oxi/{id}")
-    public OgixenoSangre editOxigenoSangre(@PathVariable(name = "id") Long id, @RequestBody OgixenoSangre oxigeno) {
-        OgixenoSangre ogixenoSangreSelect = new OgixenoSangre();
-        OgixenoSangre ogixenoSangreUpdate = new OgixenoSangre();
-
-        ogixenoSangreSelect = oxigenoSangreService.oxigenoSangreId(id);
-        ogixenoSangreSelect.setOxigeno(oxigeno.getOxigeno());
-
-        ogixenoSangreUpdate = oxigenoSangreService.actualizarOxigenoSangre(ogixenoSangreSelect);
-
-        return ogixenoSangreUpdate;
-    }
-
-    @DeleteMapping("oxi/{id}")
-    public void deleteOxigenoSangre (@PathVariable(name = "id") Long id) {
-        oxigenoSangreService.oxigenoSangreDelete(id);
-    }
 }

@@ -23,22 +23,10 @@ public class PresionArterialController {
     @Autowired
     IUsuarioDao pacienteDao;
 
-    @GetMapping("/presion/list")
-    public List<PresionArterial> listarHipertension(){
-        return presionService.listarPresion();
-    }
-
     @GetMapping("/presion/user/{id}")
     public List<PresionArterial> presionIdUser(@PathVariable(name = "id") Integer id) {
         Usuario usuario = pacienteDao.findById(id).get();
         return presionService.findByUser(usuario);
-    }
-
-    @GetMapping("/presion/{id}")
-    public PresionArterial presionId(@PathVariable(name = "id") Long id) {
-        PresionArterial presionId = new PresionArterial();
-        presionId = presionService.presionId(id);
-        return presionId;
     }
 
     @PostMapping("/presion/save")
@@ -54,22 +42,4 @@ public class PresionArterialController {
         return ResponseEntity.status(HttpStatus.CREATED).body(presionService.guardarPresion(newPresionArterial));
     }
 
-    @PutMapping("/edit/{id}")
-    public PresionArterial editPresionArterial(@PathVariable(name = "id") Long id, @RequestBody PresionArterial presion) {
-        PresionArterial presionSelect = new PresionArterial();
-        PresionArterial presionUpdate = new PresionArterial();
-
-        presionSelect = presionService.presionId(id);
-        presionSelect.setSistolica(presion.getSistolica());
-        presionSelect.setDiastolica(presion.getDiastolica());
-
-        presionUpdate = presionService.actualizarPresion(presionSelect);
-
-        return presionUpdate;
-    }
-
-    @DeleteMapping("deleted/{id}")
-    public void deletePresionArterial (@PathVariable(name = "id") Long id) {
-        presionService.eliminarPresion(id);
-    }
 }

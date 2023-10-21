@@ -1,7 +1,7 @@
 package com.medkaapp.security.controller;
 
 import com.medkaapp.security.dto.ClasificacionFrecuenciaDto;
-import com.medkaapp.security.service.ClasificacionServiceImpl;
+import com.medkaapp.security.service.impl.ClasificacionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

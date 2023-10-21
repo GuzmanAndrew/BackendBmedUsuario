@@ -3,7 +3,7 @@ package com.medkaapp.security.controller;
 import com.medkaapp.security.entity.FrecuenciaCardiaca;
 import com.medkaapp.security.dto.CreateFrecuenciaCardiacaDTO;
 import com.medkaapp.security.entity.Usuario;
-import com.medkaapp.security.mapper.DataMapper;
+import com.medkaapp.security.mapper.ClasificacionMapper;
 import com.medkaapp.security.repository.IUsuarioDao;
 import com.medkaapp.security.service.impl.FrecuenciaCardiacaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class FrecuenciaCardiacaController {
     @Autowired
     FrecuenciaCardiacaServiceImpl frecuenciaCardiacaService;
     @Autowired
-    DataMapper mapper;
+    ClasificacionMapper mapper;
     @Autowired
     IUsuarioDao pacienteDao;
 

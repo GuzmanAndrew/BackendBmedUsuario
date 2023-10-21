@@ -22,22 +22,10 @@ public class TemperaturaController {
     @Autowired
     IUsuarioDao pacienteDao;
 
-    @GetMapping("/temp/list")
-    public List<Temperatura> listarTemperatura(){
-        return temperaturaService.listarTemperatura();
-    }
-
     @GetMapping("/temp/user/{id}")
     public List<Temperatura> presionIdUser(@PathVariable(name = "id") Integer id) {
         Usuario usuario = pacienteDao.findById(id).get();
         return temperaturaService.findByUser(usuario);
-    }
-
-    @GetMapping("/temp/{id}")
-    public Temperatura temperaturaFindId(@PathVariable(name = "id") Long id) {
-        Temperatura temperaturaId = new Temperatura();
-        temperaturaId = temperaturaService.temperaturaId(id);
-        return temperaturaId;
     }
 
     @PostMapping("/temp/save")
@@ -50,24 +38,6 @@ public class TemperaturaController {
         newTemperatura.setPaciente(temp);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(temperaturaService.guardarTemperatura(newTemperatura));
-    }
-
-    @PutMapping("/temp/{id}")
-    public Temperatura editTemperatura(@PathVariable(name = "id") Long id, @RequestBody Temperatura temperatura) {
-        Temperatura temperaturaSelect = new Temperatura();
-        Temperatura temperaturaUpdate = new Temperatura();
-
-        temperaturaSelect = temperaturaService.temperaturaId(id);
-        temperaturaSelect.setTemperatura(temperatura.getTemperatura());
-
-        temperaturaUpdate = temperaturaService.actualizarTemperatura(temperaturaSelect);
-
-        return temperaturaUpdate;
-    }
-
-    @DeleteMapping("temp/{id}")
-    public void deleteTemperaturaArterial (@PathVariable(name = "id") Long id) {
-        temperaturaService.eliminarTemperatura(id);
     }
 
 }

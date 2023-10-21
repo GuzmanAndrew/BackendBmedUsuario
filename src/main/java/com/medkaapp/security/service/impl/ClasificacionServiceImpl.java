@@ -1,14 +1,15 @@
-package com.medkaapp.security.service;
+package com.medkaapp.security.service.impl;
 
 import com.medkaapp.security.entity.Usuario;
 import com.medkaapp.security.entity.ValoresPorGrupo;
 import com.medkaapp.security.repository.IUsuarioDao;
 import com.medkaapp.security.repository.ValoresPorGrupoRepository;
+import com.medkaapp.security.service.IClasificacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClasificacionServiceImpl implements IClasificacionService{
+public class ClasificacionServiceImpl implements IClasificacionService {
 
     @Autowired
     private ValoresPorGrupoRepository valoresRepo;

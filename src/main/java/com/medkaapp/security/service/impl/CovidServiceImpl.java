@@ -31,16 +31,6 @@ public class CovidServiceImpl implements ICovidService {
     }
 
     @Override
-    public Covid actualizarCovid(Covid covid) {
-        return covidDao.save(covid);
-    }
-
-    @Override
-    public void eliminarCovid(Long id) {
-        covidDao.deleteById(id);
-    }
-
-    @Override
     public List<Covid> findByUser(Usuario id) {
         return covidDao.findByUser(id);
     }
