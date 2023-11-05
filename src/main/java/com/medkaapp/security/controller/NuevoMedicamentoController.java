@@ -4,7 +4,7 @@ import com.medkaapp.error.MedicamentoNotFoundException;
 import com.medkaapp.security.dto.MedicamentoDto;
 import com.medkaapp.security.entity.*;
 import com.medkaapp.security.repository.IUsuarioDao;
-import com.medkaapp.security.service.impl.NuevoMedicamentoServiceImpl;
+import com.medkaapp.security.service.impl.TipoMedicamentoServiceImpl;
 import com.medkaapp.security.service.impl.RegistroMedicamentoServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ import java.util.Map;
 public class NuevoMedicamentoController {
 
     @Autowired
-    private NuevoMedicamentoServiceImpl service;
+    private TipoMedicamentoServiceImpl service;
 
     @Autowired
     private RegistroMedicamentoServiceImpl registroMedicamentoService;

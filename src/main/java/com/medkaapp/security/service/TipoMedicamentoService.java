@@ -5,7 +5,7 @@ import com.medkaapp.security.entity.ViaMedicamento;
 
 import java.util.List;
 
-public interface NuevoMedicamentoService {
+public interface TipoMedicamentoService {
 
     List<ViaMedicamento> listarViaMedicamentos();
     List<PresentacionMedicamento> listarPresentacionMedicamentos();

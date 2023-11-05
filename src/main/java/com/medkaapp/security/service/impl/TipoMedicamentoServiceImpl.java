@@ -4,14 +4,14 @@ import com.medkaapp.security.entity.PresentacionMedicamento;
 import com.medkaapp.security.entity.ViaMedicamento;
 import com.medkaapp.security.repository.PresentacionMedicamentoRepository;
 import com.medkaapp.security.repository.ViaMedicamentoRepository;
-import com.medkaapp.security.service.NuevoMedicamentoService;
+import com.medkaapp.security.service.TipoMedicamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class NuevoMedicamentoServiceImpl implements NuevoMedicamentoService {
+public class TipoMedicamentoServiceImpl implements TipoMedicamentoService {
 
     @Autowired
     private ViaMedicamentoRepository viaMedicamentoRepository;

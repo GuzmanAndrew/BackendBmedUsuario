@@ -1,7 +1,6 @@
 package com.medkaapp.security.service;
 
 import com.medkaapp.security.dto.MedicamentoDto;
-import com.medkaapp.security.entity.Covid;
 import com.medkaapp.security.entity.RegistroMedicamento;
 import com.medkaapp.security.entity.Usuario;
 

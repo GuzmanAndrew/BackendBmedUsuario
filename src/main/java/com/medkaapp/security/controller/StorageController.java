@@ -31,7 +31,7 @@ public class StorageController {
         byte[] data = storageService.downloadFile(fileName);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(storageService.getContentType(fileName));
-        headers.setContentDisposition(ContentDisposition.builder("attachment").filename(fileName).build());
+        headers.setContentDisposition(ContentDisposition.builder("inline").filename(fileName).build());
         return new ResponseEntity<>(data, headers, HttpStatus.OK);
     }
 
