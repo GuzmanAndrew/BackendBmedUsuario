@@ -72,8 +72,9 @@ public class NuevaPatologiaController {
     public ResponseEntity<PatologiaDto> editMedicamento(@PathVariable(name = "id") Long id, @RequestBody PatologiaDto patologia) {
         PatologiaDto patologiaIdId = registroPatologiaService.patologiaId(id);
         RegistroPatologia patologiaSelect = modelMapper.map(patologiaIdId, RegistroPatologia.class);
-        patologiaSelect.setRequiereTratamiento(patologia.getRequiereTratamiento());
         patologiaSelect.setDescripcionTratamiento(patologia.getDescripcionTratamiento());
+        Usuario usuario = pacienteDao.findById(patologia.getUsuarioId()).orElse(null);
+        patologiaSelect.setUsuario(usuario);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(registroPatologiaService.actualizarPatologia(patologiaSelect));
