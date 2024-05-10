@@ -47,6 +47,7 @@ public class AuthController {
 
     /**
      * Endponit para listar usuarios
+     * 
      * @return
      */
     @GetMapping("/findUsuarios")
@@ -56,6 +57,7 @@ public class AuthController {
 
     /**
      * Endponit para listar usuario por id
+     * 
      * @return
      */
     @GetMapping("/usuario/{id}")
@@ -68,6 +70,7 @@ public class AuthController {
 
     /**
      * Endponit para listar usuario por nombreUsuario
+     * 
      * @return
      */
     @GetMapping("/user/name/{nombreUsuario}")
@@ -79,7 +82,7 @@ public class AuthController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody Usuario user){
+    public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody Usuario user) {
 
         Usuario usuarioSelect = new Usuario();
 
@@ -95,26 +98,29 @@ public class AuthController {
     }
 
     @PostMapping("/nuevo")
-    public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
-        if(bindingResult.hasErrors())
+    public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("campos mal puestos o email inválido"), HttpStatus.BAD_REQUEST);
-        if(usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario()))
+        if (usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario()))
             return new ResponseEntity(new Mensaje("ese nombre ya existe"), HttpStatus.BAD_REQUEST);
-        if(usuarioService.existsByEmail(nuevoUsuario.getEmail()))
+        if (usuarioService.existsByEmail(nuevoUsuario.getEmail()))
             return new ResponseEntity(new Mensaje("ese email ya existe"), HttpStatus.BAD_REQUEST);
-        Usuario usuario =
-                new Usuario(nuevoUsuario.getNombres(), nuevoUsuario.getApellidos(), nuevoUsuario.getNombreUsuario(), nuevoUsuario.getEmail(),
-                        nuevoUsuario.getEdad(), nuevoUsuario.getCedula(), nuevoUsuario.getDireccion(), nuevoUsuario.getCelular(),
-                        passwordEncoder.encode(nuevoUsuario.getPassword()));
+        Usuario usuario = new Usuario(nuevoUsuario.getNombres(), nuevoUsuario.getApellidos(),
+                nuevoUsuario.getNombreUsuario(), nuevoUsuario.getEmail(),
+                nuevoUsuario.getEdad(), nuevoUsuario.getCedula(), nuevoUsuario.getDireccion(),
+                nuevoUsuario.getCelular(),
+                passwordEncoder.encode(nuevoUsuario.getPassword()));
 
         Set<Rol> roles = new HashSet<>();
         roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
 
-        /*if(nuevoUsuario.getRoles().contains("medico")) {
-            roles.add(rolService.getByRolNombre(RolNombre.ROLE_MEDICO).get());
-        } else {
-            roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
-        }*/
+        /*
+         * if(nuevoUsuario.getRoles().contains("medico")) {
+         * roles.add(rolService.getByRolNombre(RolNombre.ROLE_MEDICO).get());
+         * } else {
+         * roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
+         * }
+         */
 
         usuario.setRoles(roles);
         usuarioService.save(usuario);
@@ -122,15 +128,15 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult){
-        if(bindingResult.hasErrors())
+    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("campos mal puestos"), HttpStatus.BAD_REQUEST);
-        Authentication authentication =
-                authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUsuario.getNombreUsuario(), loginUsuario.getPassword()));
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginUsuario.getNombreUsuario(), loginUsuario.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtProvider.generateToken(authentication);
         JwtDto jwtDto = new JwtDto(jwt);
         return new ResponseEntity(jwtDto, HttpStatus.OK);
     }
-    
+
 }

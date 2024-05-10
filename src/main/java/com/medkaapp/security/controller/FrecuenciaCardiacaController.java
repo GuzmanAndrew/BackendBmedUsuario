@@ -42,7 +42,8 @@ public class FrecuenciaCardiacaController {
         Usuario temp = pacienteDao.findById(frecuencia.getPacienteId()).orElse(null);
         newFrecuencia.setPaciente(temp);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(frecuenciaCardiacaService.guardarFrecuenciaCardiaca(newFrecuencia));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(frecuenciaCardiacaService.guardarFrecuenciaCardiaca(newFrecuencia));
     }
 
 }
