@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bmed-user-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bmed-user
+  template:
+    metadata:
+      labels:
+        app: bmed-user
+    spec:
+      containers:
+        - name: bmed-user
+          image: GuzmanAndrew/bmed-user-pipeline:1.0.0-9
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8081
