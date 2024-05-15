@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: bmed-user
-          image: andrewramirez/bmed-usuarios-pipeline:1.0.0-12
+          image: andrewramirez/bmed-usuarios-pipeline:1.0.0-13
           resources:
             limits:
               memory: "256Mi"
