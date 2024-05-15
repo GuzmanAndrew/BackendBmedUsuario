@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/auth")
 @CrossOrigin
 public class SoporteTecnicoController {
 
