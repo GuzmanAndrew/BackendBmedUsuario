@@ -114,14 +114,6 @@ public class AuthController {
         Set<Rol> roles = new HashSet<>();
         roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
 
-        /*
-         * if(nuevoUsuario.getRoles().contains("medico")) {
-         * roles.add(rolService.getByRolNombre(RolNombre.ROLE_MEDICO).get());
-         * } else {
-         * roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
-         * }
-         */
-
         usuario.setRoles(roles);
         usuarioService.save(usuario);
         return new ResponseEntity(new Mensaje("usuario guardado"), HttpStatus.CREATED);

@@ -37,6 +37,12 @@ public class NuevaPatologiaController {
         return tipoPatologiaService.listaTipoPatologias();
     }
 
+    @GetMapping("/tipos/list/{id}")
+    public TipoPatologia listarTipoEnfermedades(@PathVariable(name = "id") Long id) {
+        TipoPatologia tipoId = tipoPatologiaService.patologiaTypeId(id);
+        return tipoId;
+    }
+
     @GetMapping("/listar")
     public List<PatologiaDto> listarMedicamentos() {
         return registroPatologiaService.listarPatologias();

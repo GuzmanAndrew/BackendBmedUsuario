@@ -19,4 +19,9 @@ public class TipoPatologiaServiceImpl implements TipoPatologiaService {
     public List<TipoPatologia> listaTipoPatologias() {
         return tipoPatologiaRepository.findAll();
     }
+
+    @Override
+    public TipoPatologia patologiaTypeId(Long id) {
+        return tipoPatologiaRepository.findById(id).get();
+    }
 }
